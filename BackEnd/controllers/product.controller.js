@@ -16,15 +16,15 @@ export const getProducts = async (req, res) => {
 export const createProduct = async (req, res) => {
     const product = req.body;
     if (!product.name || !product.price || !product.image) {
-        return res.status(400).json("All fields are required");
+        return res.status(400).json({success:false,message:"All fields are required"});
     }
     const newProduct = new Product(product);
     try {
         await newProduct.save();
-        res.status(201).json("Product created successfully");
+        res.status(201).json({success:true,data:newProduct,message:"Product created successfully"});
     } catch (error) {
         console.error('Error creating product:', error);
-        res.status(500).json("Internal server error");
+        res.status(500).json({success:false,message:"Internal server error"});
     }
 }
 
