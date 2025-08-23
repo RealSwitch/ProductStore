@@ -19,5 +19,18 @@ export const useProductStore = create((set) => ({
         return {success:true, message:'Product added to the stock.'}
 
     },
+    fetchProducts : async () => {
+        const res = await fetch("/api/products");
+        const data = await res.json();
+        set({products:data})
+    },
+    deleteProduct: async (product_id) =>{
+        const res = await fetch("/api/products/${product_id}",{method:"DELETE",});
+        const data = await res.json();
+        if (!data.success) return {success:false,message:data.message};
+        set((state) => ({products:state.products.filter(product => product._id !== product_id)}));
+        return {success:true,message:data.message}
+
+    }
 }));
 export default useProductStore;

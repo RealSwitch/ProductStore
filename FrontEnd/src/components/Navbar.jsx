@@ -18,8 +18,9 @@ const Navbar = () => {
         fontWeight={'bold'}
         bgGradient={'linear(to-r, #7928CA, #FF0080)'}
         bgClip={'text'}
+        textAlign={"center"}
         >
-          <Link to={"/"}>Product Store </Link>
+          <Link to={"/"}>TechXplora</Link>
       </Text>
       <HStack spacing={2} alignItems={"center"} justifyContent={"center"}>
         <Link to={"/create"}>
