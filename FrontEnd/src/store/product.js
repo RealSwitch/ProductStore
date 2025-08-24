@@ -33,6 +33,7 @@ export const useProductStore = create((set) => ({
 
     },
     updateProduct: async (product_id,updatedProduct) =>{
+        let productIdString = String(product_id);
         const res = await fetch(`/api/products/${product_id}`,{
             method:"PUT",
             headers:{"Content-Type":"application/json"},
