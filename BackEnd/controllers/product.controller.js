@@ -36,7 +36,7 @@ export const updateProduct = async (req, res) => {
         if (!updatedProduct) {
             return res.status(404).json("Product not found");
         }
-        res.status(200).json("Product updated successfully");
+        res.status(200).json({success:true,data:updatedProduct,message:"Product updated successfully"});
     } catch (error) {
         console.error('Error updating product:', error);
         res.status(500).json("Internal server error");
@@ -49,7 +49,7 @@ export const deleteProduct =  async (req, res) => {
         if (!deletedProduct) {
             return res.status(404).json("Product not found");
         }
-        res.status(200).json("Product deleted successfully");
+        res.status(200).json({success:true,data:deletedProduct,message:"Product deleted successfully"});
     } catch (error) {               
         console.error('Error deleting product:', error);
         res.status(500).json("Internal server error");
