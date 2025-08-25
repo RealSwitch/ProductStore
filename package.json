@@ -4,8 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon BackEnd/server.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "NODE_ENV=development nodemon BackEnd/server.js",
+    "build": "npm install && npm install --prefix FrontEnd && npm run build --prefix FrontEnd",
+    "start": "NODE_ENV=production node BackEnd/server.js"
   },
   "type": "module",
   "keywords": [],
@@ -13,7 +14,7 @@
   "license": "ISC",
   "dependencies": {
     "dotenv": "^17.2.1",
-    "express": "^5.1.0",
+    "express": "^4.21.2",
     "mongoose": "^8.17.2",
     "zustand": "^5.0.8"
   },
